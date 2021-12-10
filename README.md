@@ -82,7 +82,9 @@ RUN apt-get -y update && \
 2. `git add` and `git push` the file `Dockerfile` to the repository.
 
 ```
-# Add your commands here
+# git add Dockerfile
+# git commit -m 'dockerfile added'
+# git push
 ```
 
 ## Build and push Docker image
@@ -92,7 +94,10 @@ RUN apt-get -y update && \
    `<yourdockerhubusername>/computational-workflows`.
 
 ```
-# Add your commands here
+# docker build .
+# docker login
+# docker tag 5958715bb67d arkochem/computational-workflows
+# docker push arkochem/computational-workflows
 ```
 
 ## Run a container, and share in files from the host.
@@ -102,7 +107,7 @@ RUN apt-get -y update && \
    an interactive prompt inside the running container.
 
 ```
-# Add your commands here
+# docker run -ti -v $(pwd):/root/shared arkochem/computational-workflows
 ```
 
 ## Setup a simple Python test suite
@@ -113,14 +118,17 @@ RUN apt-get -y update && \
    repository.  ``git add``, ``git commit`` and ``git push`` them.
 
 ```
-# Add your commands here
+# mv wallet.py test_wallet.py ./crw-homework/
+# git add wallet.py test_wallet.py
+# git commit -m 'python files added'
+# git push
 ```
 
 2. Start a Docker container using your image and share your repository into a
    directory `/root/shared` into the container.
 
 ```
-# Add your commands here
+# docker run -ti -v $(pwd):/root/shared -w /root/shared arkochem/computational-workflows
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
