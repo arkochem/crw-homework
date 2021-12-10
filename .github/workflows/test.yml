@@ -1,0 +1,14 @@
+name: Run tests
+
+on: [push, commit]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    container: arkochem/computational-workflows
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run tests
+        run:  py.test-3
