@@ -1,6 +1,6 @@
 name: Run tests
 
-on: [push, commit]
+on: [push]
 
 jobs:
   testing:
@@ -11,4 +11,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run tests
-        run:  py.test-3
+        run: |
+          py.test-3
